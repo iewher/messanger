@@ -3,6 +3,7 @@ import './style/left-bar-style.css'
 
 import { Header } from '../header/Header';
 import { Search } from '../search/Search';
+import  GET_API   from '../GET_API/GET_API';
 
 export const LeftBar = () => {
     return (

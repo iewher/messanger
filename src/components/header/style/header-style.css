@@ -14,6 +14,8 @@
     font-size: 2rem;
 }
 
+/* for mobile screen */
+
 @media (max-width: 768px) {
     .header-user {
         height: 2rem;

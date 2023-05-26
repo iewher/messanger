@@ -10,7 +10,7 @@
     display: flex;
     height: 95vh;
     width: 80vw;
-    border: 1px solid black;
+    box-shadow: 0 0 10px 10px rgba(221, 221, 221, 1);
   }
   
 .main-content {
@@ -38,6 +38,8 @@
   height: 25%;
   font-size: 1.5rem;
 }
+
+/* for mobile screen */
 
 @media (max-width: 768px) {
   .main-image-preload img {

@@ -13,6 +13,8 @@
     font-size: .8rem;
 }
 
+/* for mobile screen */
+
 @media (max-width: 768px) {
     .left-bar-content {
         font-size: .6rem;
