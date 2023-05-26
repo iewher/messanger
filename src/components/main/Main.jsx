@@ -8,27 +8,28 @@ import { LeftBar } from '../left-bar/Left-bar';
 export const Main = () => {
     const [message, setMessage] = useState('');
     const [messagesList, setMessagesList] = useState([]);
+    const [chatId, setChatId] = useState('');
 
     const handleSendMessage = async () => {
-        const chatId = '79091163129@c.us'; 
-        try {
-          const response = await get_api.sendMessage(get_api.idInstance, get_api.apiTokenInstance, chatId, message);
-          console.log(response); 
-          // Add the sent message to the messages list
-          setMessagesList([...messagesList, {message: {body: message}}]);
-          // Clear the input field
-          setMessage('');
-        } catch (error) {
-          console.error(error); 
+        if (chatId) { 
+            try {
+              const response = await get_api.sendMessage(get_api.idInstance, get_api.apiTokenInstance, chatId, message);
+              console.log(response); 
+              setMessagesList([...messagesList, {message: {body: message}}]);
+              setMessage('');
+            } catch (error) {
+              console.error(error); 
+            }
+        } else {
+            alert('Пожалуйста, выберите чат.'); 
         }
       }
 
-      useEffect(() => {
+    useEffect(() => {
         const interval = setInterval(async () => {
           try {
             const response = await get_api.getMessage(get_api.idInstance, get_api.apiTokenInstance);
             if (response.notifications.length > 0) {
-              // Create a new array with the incoming messages appended to the old ones
               const newMessages = messagesList.concat(response.notifications.map(notification => notification.message));
               setMessagesList(newMessages);
             }
@@ -43,23 +44,34 @@ export const Main = () => {
     return (
         <div className="main">
             <div className="main-container">
-                <LeftBar />
+                <LeftBar setChatId={setChatId}/> 
                 <div className="main-content">
-                    <div className='main-chat'>
-                        <div className='main-messages'>
-                            {messagesList.map((message, index) => {
-                                return (
-                                    <div key={index}>
-                                        <p>{message && message.message.body}</p>
-                                    </div>
-                                )
-                            })}
+                    {chatId ? (
+                        <div className='main-chat'>
+                            <div className='main-messages'>
+                                {messagesList.map((message, index) => {
+                                    return (
+                                        <div key={index}>
+                                            <p>{message && message.message.body}</p>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                            <div className='main-chat-input'>
+                                <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder='Ожидаю вашего сообщения'/>
+                                <button onClick={handleSendMessage}><RiSendPlaneFill /></button>
+                            </div>
                         </div>
-                        <div className='main-chat-input'>
-                            <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder='Ожидаю вашего сообщения'/>
-                            <button onClick={handleSendMessage}><RiSendPlaneFill /></button>
+                    ) : (
+                        <div className='no-chat-selected'> 
+                            <div className='no-chat-image'>
+                                <img src='https://cdn-icons-png.flaticon.com/512/17/17470.png?w=360' alt='Изображение'/>
+                            </div>
+                            <div className='no-chat-text'>
+                                <p>Выберите чат</p>
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </div>
             </div>
         </div>
