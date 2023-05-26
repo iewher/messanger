@@ -1,0 +1,13 @@
+.left-bar {
+    width: 25%;
+    height: 100%;
+    background: gray;
+    color: white;
+}
+
+.left-bar-content {
+    height: 83%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

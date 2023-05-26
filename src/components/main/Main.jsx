@@ -1,18 +1,21 @@
 import React from 'react';
 import './style/main-style.css';
 
-import { Header } from '../header/Header';
-import { Footer } from '../footer/Footer';
+import { LeftBar } from '../left-bar/Left-bar';
 
 export const Main = () => {
     return (
         <div className="main">
             <div className="main-container">
-                <Header />
+                <LeftBar />
                 <div className="main-content">
-                    main content
+                    <div className='main-image-preload'>
+                        <img src='https://cdn-icons-png.flaticon.com/512/17/17470.png?w=360'/>
+                    </div>
+                    <div className="main-text-preload">
+                        <p>Отправляйте или получайте сообщение</p>
+                    </div>
                 </div>
-                <Footer />  
             </div>
         </div>
     )
