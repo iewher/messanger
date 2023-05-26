@@ -38,3 +38,13 @@
   height: 25%;
   font-size: 1.5rem;
 }
+
+@media (max-width: 768px) {
+  .main-image-preload img {
+    height: 30%;
+  }
+
+  .main-text-preload {
+    font-size: 1rem;
+  }
+}

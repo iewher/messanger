@@ -12,10 +12,18 @@
     border-radius: .5rem;
     text-indent: 1rem;
     transition: .3s;
+    font-size: 1rem;
 }
 
 .search-input:hover {
     transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+    .search-input {
+        font-size: .5rem;
+        text-indent: .5rem;
+    }
+  }
 
 
