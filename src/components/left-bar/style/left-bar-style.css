@@ -6,12 +6,27 @@
 }
 
 .left-bar-content {
-    height: 83%;
-    width: 100%;
+    height: fit-content;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    text-align: center;
     font-size: .8rem;
-}
+  }
+  
+  .left-bar-content button {
+    width: 85%;
+    height: 2rem;
+    margin-top: 1rem;
+    border-radius: .5rem;
+    border: none;
+    background: white;
+    transition: .3s;
+  }
+
+  .left-bar-content button:hover {
+    transform: scale(1.05);
+  }
 
 /* for mobile screen */
 
