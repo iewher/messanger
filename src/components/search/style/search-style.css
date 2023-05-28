@@ -17,7 +17,7 @@
 }
 
 .search-input:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
 }
 
 .search-button {
@@ -26,6 +26,12 @@
     border-radius: .5rem;
     border: none;
     margin-left: 1rem;
+    background: white;
+    transition: .3s;
+}
+
+.search-button:hover {
+    transform: scale(1.04);
 }
 
 /* for mobile screen */
