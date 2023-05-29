@@ -1,13 +1,11 @@
-import data from './data.json';
-
 class GET_API {
     constructor(config) {
         this._baseUrl = config.baseUrl;
         this._headers = config.headers;
     }
 
-    idInstance = data.IdInstance;
-    apiTokenInstance = data.ApiTokenInstance;
+    idInstance = localStorage.getItem('IdInstance');
+    apiTokenInstance = localStorage.getItem('ApiTokenInstance');
 
     getDataContact(idInstance, apiTokenInstance, chatId) {
         return fetch(`${this._baseUrl}/waInstance${idInstance}/getContactInfo/${apiTokenInstance}`, {
