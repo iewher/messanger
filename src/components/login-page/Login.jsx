@@ -19,7 +19,7 @@ export const Login = () => {
   const handleSave = () => {
     localStorage.setItem('ApiTokenInstance', ApiTokenInstance);
     localStorage.setItem('IdInstance', IdInstance);
-    navigate('/main');
+    navigate('/chat');
   }
 
   return (

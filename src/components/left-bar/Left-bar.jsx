@@ -2,31 +2,43 @@ import React, { useState } from 'react';
 import './style/left-bar-style.css'
 
 import { Header } from '../header/Header';
-import { Search } from '../search/Search';
 
-export const LeftBar = () => {
-    const [chatid, setChatId] = useState('');
-    const [chats, setChats] = useState([]);
+export const LeftBar = ({ onSelectChat }) => {
+    const [chatList, setChatList] = useState([]);
+    const [newChatId, setNewChatId] = useState('');
 
-    const handleInputChange = (event) => {
-        setChatId(event.target.value);
-    };
+    const handleAddChat = (e) => {
+        e.preventDefault();
+        if (newChatId !== '') {
+          setChatList([...chatList, newChatId]);
+          setNewChatId('');
+        }
+      }
 
-    const handleSearchButtonClick = () => {
-        setChats([...chats, chatid]);
-        setChatId('');
-    };
+    const handleSelectChat = (chatId) => {
+        onSelectChat(chatId);
+    }
 
     return (
         <div className="left-bar">
             <Header />
-            <Search onChange={handleInputChange} onSearchButtonClick={handleSearchButtonClick} />
+            <form onSubmit={handleAddChat} className="left-bar-form">
+                <input
+                    type="text"
+                    placeholder="Введите номер чата"
+                    value={newChatId}
+                    onChange={(e) => setNewChatId(e.target.value)}
+                />
+                <button type="submit">Добавить</button>
+            </form>
             <div className="left-bar-content">
-                {chats.map((chat, index) => (
-                    <div key={index}>
-                        <button>{chat}</button>
-                    </div>
-                ))}
+                <ul>
+                    {chatList.map((chatId, index) => (
+                        <li key={index} onClick={() => handleSelectChat(chatId)}>
+                            {chatId}
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     )
