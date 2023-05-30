@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style/left-bar-style.css'
+import './style/left-bar-style.scss';
 
 import { Header } from '../header/Header';
 

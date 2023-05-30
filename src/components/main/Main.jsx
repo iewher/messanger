@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './style/main-style.css';
+import './style/main-style.scss';
 import { RiSendPlaneFill } from 'react-icons/ri';
 import get_api from '../GET_API/GET_API';
 

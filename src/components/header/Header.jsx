@@ -1,5 +1,5 @@
 import React from 'react';
-import './style/header-style.css';
+import './style/header-style.scss';
 import {AiOutlineUser} from 'react-icons/ai'
 
 export const Header = () => {

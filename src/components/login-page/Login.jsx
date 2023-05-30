@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import './style/login-style.css';
+import './style/login-style.scss';
 
 export const Login = () => {
   const [ApiTokenInstance, setApiTokenInstance] = useState('');

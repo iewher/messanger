@@ -1,9 +1,13 @@
-.header {
-    height: 10%;
-    width: 100%;
+@mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.header {
+    height: 10%;
+    width: 100%;
+    @include flex-center();
 }
 
 .header-user {

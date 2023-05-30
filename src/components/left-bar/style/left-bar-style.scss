@@ -1,3 +1,9 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
 .left-bar {
     width: 25%;
     height: 100%;
@@ -7,10 +13,8 @@
 
 .left-bar-content {
     height: fit-content;
-    display: flex;
+    @include flex-center;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
     font-size: .8rem;
   }
   
@@ -26,6 +30,31 @@
 
   .left-bar-content button:hover {
     transform: scale(1.05);
+  }
+
+  .left-bar-form {
+    height: 5%;
+
+    @mixin left-bar-form {
+      height: 100%;
+      border-radius: .5rem;
+      border: none;
+      background: white;
+    }
+    
+    @include flex-center();
+
+    input {
+      width: 70%;
+      margin-right: 1rem;
+      text-indent: 1rem;
+      @include left-bar-form();
+    }
+
+    button {
+      width: 20%;
+      @include left-bar-form();
+    }
   }
 
 /* for mobile screen */
