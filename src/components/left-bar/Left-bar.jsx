@@ -34,9 +34,12 @@ export const LeftBar = ({ onSelectChat }) => {
             <div className="left-bar-content">
                 <ul>
                     {chatList.map((chatId, index) => (
-                        <li key={index} onClick={() => handleSelectChat(chatId)}>
-                            {chatId}
-                        </li>
+                        <div className='left-bar-li'>
+                            <li key={index} onClick={() => handleSelectChat(chatId)}>
+                                {chatId}
+                            </li>
+                        </div>
+                        
                     ))}
                 </ul>
             </div>

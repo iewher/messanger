@@ -4,23 +4,43 @@
   text-align: center;
 }
 
+@mixin height_and_width($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+$white: #fff;
+$black: #000;
+
 .left-bar {
-    width: 25%;
-    height: 100%;
+    @include height_and_width(100%, 25%);
     background: gray;
-    color: white;
+    color: $white;
 }
 
 .left-bar-content {
-    height: fit-content;
+    @include height_and_width(fit-content, auto);
     @include flex-center;
     flex-direction: column;
     font-size: .8rem;
   }
+
+.left-bar-li {
+  @include height_and_width(fit-content, 100%);
+  @include flex-center();
+
+  li {
+    @include height_and_width(3vh, 90%);
+    background: $white;
+    color: $black;
+    font-size: 1rem;
+    margin-top: 1rem;
+    border-radius: .5rem
+  }
+}
   
   .left-bar-content button {
-    width: 85%;
-    height: 2rem;
+    @include height_and_width(2rem, 85%);
     margin-top: 1rem;
     border-radius: .5rem;
     border: none;
@@ -33,8 +53,7 @@
   }
 
   .left-bar-form {
-    height: 5%;
-
+    @include height_and_width(5%, auto);
     @mixin left-bar-form {
       height: 100%;
       border-radius: .5rem;
