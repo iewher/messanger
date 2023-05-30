@@ -1,12 +1,19 @@
-$height-main: 100vh;
-$wight-main: 100vw;
-$box-shadow: 0 0 10px 10px rgba(221, 221, 221, 1);
-
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+@mixin height_and_width($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+$height-main: 100vh;
+$wight-main: 100vw;
+$box-shadow: 0 0 10px 10px rgba(221, 221, 221, 1);
+$white: #fff;
+$black: #000;
 
 .main {
   @include flex-center;
@@ -15,23 +22,19 @@ $box-shadow: 0 0 10px 10px rgba(221, 221, 221, 1);
 }
 
 .main-container {
+  @include height_and_width(95vh, 80vw);
   display: flex;
-  height: 95vh;
-  width: 80vw;
   box-shadow: $box-shadow;
 }
 
 .main-content {
-  width: 80%;
+  @include height_and_width(auto, 80vw);
   display: block;
-  justify-content: center;
-  align-items: center;
   position: relative; 
 }
 
 .main-chat {
-  height: 100%;
-  width: 100%;
+  @include height_and_width(100%, 100%);
   display: flex;
   flex-direction: column; 
   position: absolute;
@@ -39,9 +42,8 @@ $box-shadow: 0 0 10px 10px rgba(221, 221, 221, 1);
 }
 
 .main-messages {
-  height: calc(100% - 10%); 
+  @include height_and_width(calc(100% - 10%), 100%);
   overflow-y: scroll;
-  width: 100%;
   position: absolute; 
   top: 0;
 
@@ -63,38 +65,32 @@ $box-shadow: 0 0 10px 10px rgba(221, 221, 221, 1);
 }
 
 .main-chat-input {
-  height: 10%;
+  @include height_and_width(10%, 100%);
   @include flex-center();
-  width: 100%;
   position: absolute; 
   bottom: 0; 
 }
 
 .main-chat-input input {
-  height: 50%;
-  width: 80%;
-  border: 1px solid black;
+  @include height_and_width(50%, 80%);
+  border: 1px solid $black;
   border-radius: 1rem;
   text-indent: 1rem;
 }
 
 .main-chat-input button {
-  height: 55%;
-  width: 6%;
-  border-radius: 50%;
+  @include height_and_width(55%, 6%);
   @include flex-center();
+  border-radius: 50%;
   font-size: 1.5rem;
   margin-left: 1rem;
-  border: 1px solid black;
-  background: white;
+  border: 1px solid $black;
+  background: $white;
 }
 
 .no-chat-selected {
-  height: 100%;
-  width: 100%;
+  @include height_and_width(100%, 100%);
   display: block;
-  justify-content: center;
-  align-items: center;
 }
 
 .no-chat-image {
@@ -104,9 +100,8 @@ $box-shadow: 0 0 10px 10px rgba(221, 221, 221, 1);
 }
 
 .no-chat-text {
-  height: 25%;
-  display: flex;
-  justify-content: center;
+  @include height_and_width(25%, auto);
+  @include flex-center();
   font-size: 1.5rem;
 }
 
@@ -114,7 +109,7 @@ $box-shadow: 0 0 10px 10px rgba(221, 221, 221, 1);
 
  @media (max-width: 768px) {
   .no-chat-image img {
-    height: 30%;
+    @include height_and_width(30%, auto);
   }
 
   .no-chat-text {
