@@ -5,6 +5,7 @@ import get_api from '../GET_API/GET_API';
 export const Chat = ({ chatId }) => {
   const [message, setMessage] = useState('');
   const [messagesList, setMessagesList] = useState([]);
+  const image = 'https://static.vecteezy.com/system/resources/previews/023/328/617/original/hand-holding-phone-with-chat-message-chat-with-friends-and-send-messages-information-exchange-png.png';
 
   const idInstance = localStorage.getItem('IdInstance');
   const apiTokenInstance = localStorage.getItem('ApiTokenInstance');
@@ -50,7 +51,10 @@ export const Chat = ({ chatId }) => {
             );
           })
         ) : (
-          <div>No messages</div>
+          <div className='main-no-message'>
+            <img src={image} alt='no-message'/>
+            <p>No message</p>
+          </div>
         )}
       </div>
       <div className="main-chat-input">

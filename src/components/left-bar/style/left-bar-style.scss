@@ -31,11 +31,13 @@ $black: #000;
 
   li {
     @include height_and_width(3vh, 90%);
+    @include flex-center();
     background: $white;
     color: $black;
     font-size: 1rem;
     margin-top: 1rem;
-    border-radius: .5rem
+    border-radius: .5rem;
+    list-style-type: none;
   }
 }
   

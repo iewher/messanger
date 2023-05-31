@@ -99,10 +99,20 @@ $black: #000;
   @include flex-center();
 }
 
-.no-chat-text {
-  @include height_and_width(25%, auto);
+.main-no-message {
+  @include height_and_width(100%, 100%);
   @include flex-center();
-  font-size: 1.5rem;
+  flex-direction: column;
+
+  p {
+    background: $white;
+    font-size: 2rem;
+  }
+
+  img {
+    @include height_and_width(60%, 30%);
+    border-radius: 1rem;
+  }
 }
 
 /* for mobile screen */ 
